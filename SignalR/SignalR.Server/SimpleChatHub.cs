@@ -2,7 +2,7 @@
 
 namespace SignalR.Server;
 
-public class SimpleChatHub : Hub
+public sealed class SimpleChatHub : Hub
 {
     public async Task SendMessage(string message)
     {

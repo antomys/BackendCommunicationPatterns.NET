@@ -3,8 +3,10 @@ using MessageBroker.Contracts;
 
 namespace MessageBroker.Consumer;
 
-public record ItemCreatedMessageConsumer : IConsumer<ItemCreatedMessage>
+/// <inheritdoc />
+public sealed record ItemCreatedMessageConsumer : IConsumer<ItemCreatedMessage>
 {
+    /// <inheritdoc />
     public Task Consume(ConsumeContext<ItemCreatedMessage> context)
     {
         Console.WriteLine(

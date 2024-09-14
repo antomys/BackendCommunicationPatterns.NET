@@ -6,20 +6,20 @@ var services = new ServiceCollection();
 
 // Console.Write("Enter queue name: ");
 // var queue = Console.ReadLine();
-
-services.AddMassTransit(x =>
+services.AddMassTransit(registrationConfigurator =>
 {
-    x.AddConsumer<ItemCreatedMessageConsumer>();
-    
-    x.UsingRabbitMq((context, cfg) =>
+    registrationConfigurator.AddConsumer<ItemCreatedMessageConsumer>();
+
+    registrationConfigurator.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host("localhost", "/", h =>
         {
             h.Username("guest");
             h.Password("guest");
         });
-        
+
         cfg.ConfigureEndpoints(context);
+
         // cfg.ReceiveEndpoint(queue, e =>
         // {
         //     e.Consumer<ItemCreatedMessageConsumer>();

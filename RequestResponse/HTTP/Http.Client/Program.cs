@@ -19,12 +19,14 @@ Console.WriteLine(deleteResponse);
 
 // Using the IHttpClientFactory
 var services = new ServiceCollection();
-services.AddHttpClient("Local", client =>
-{
-    client.BaseAddress = new Uri("http://localhost:5001/");
-    client.DefaultRequestHeaders.Add("Accept", "application/json");
-    client.Timeout = TimeSpan.FromSeconds(15);
-});
+services.AddHttpClient(
+    "Local",
+    httpClient =>
+    {
+        httpClient.BaseAddress = new Uri("http://localhost:5001/");
+        httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+        httpClient.Timeout = TimeSpan.FromSeconds(15);
+    });
 services.AddTransient<ItemService>();
 
 var serviceProvider = services.BuildServiceProvider();

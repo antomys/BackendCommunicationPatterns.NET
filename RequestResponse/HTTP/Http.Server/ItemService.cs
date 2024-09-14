@@ -1,9 +1,9 @@
 ﻿namespace HTTP.Server;
 
-public class ItemService
+public sealed class ItemService
 {
     public async Task<Item> GetItem(int id)
     {
-        return await Task.FromResult(new Item());
+        return await Task.FromResult(Item.Default);
     }
 }

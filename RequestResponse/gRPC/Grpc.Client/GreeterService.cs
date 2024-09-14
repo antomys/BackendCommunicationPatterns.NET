@@ -2,18 +2,11 @@
 
 namespace Grpc.Client;
 
-public class GreeterService
+public sealed class GreeterService(Greeter.GreeterClient client)
 {
-    private readonly Greeter.GreeterClient _client;
-
-    public GreeterService(Greeter.GreeterClient client)
-    {
-        _client = client;
-    }
-
     public async Task<string> SayHelloAsync(string name)
     {
-        var reply = await _client.SayHelloAsync(new HelloRequest { Name = name });
+        var reply = await client.SayHelloAsync(new HelloRequest { Name = name });
         return reply.Message;
     }
 }
