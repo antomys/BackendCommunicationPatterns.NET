@@ -1,4 +1,4 @@
-﻿using MassTransit;
+using MassTransit;
 using MessageBroker.Contracts;
 
 namespace MessageBroker.Consumer;

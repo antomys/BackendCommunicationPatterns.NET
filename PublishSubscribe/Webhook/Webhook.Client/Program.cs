@@ -11,8 +11,5 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddLogging();
 
 var app = builder.Build();
-app.MapPost("/wh/item/new", (object payload, ILogger<Program> logger) =>
-{
-    logger.LogInformation("Received payload: {payload}", payload);
-});
+app.MapPost("/wh/item/new", (object payload, ILogger<Program> logger) => logger.LogInformation("Received payload: {payload}", payload));
 app.Run();

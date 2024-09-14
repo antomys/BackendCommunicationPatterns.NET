@@ -1,4 +1,4 @@
-﻿using Grpc.Client;
+using Grpc.Client;
 using Grpc.Net.Client;
 using Grpc.Server;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,10 +12,7 @@ Console.WriteLine("Greeting: " + reply.Message);
 // Using the Client factory
 var services = new ServiceCollection();
 services.AddTransient<GreeterService>();
-services.AddGrpcClient<Greeter.GreeterClient>(o =>
-{
-    o.Address = new Uri("https://localhost:5002");
-});
+services.AddGrpcClient<Greeter.GreeterClient>(o => o.Address = new Uri("https://localhost:5002"));
 
 var serviceProvider = services.BuildServiceProvider();
 var greeterService = serviceProvider.GetRequiredService<GreeterService>();

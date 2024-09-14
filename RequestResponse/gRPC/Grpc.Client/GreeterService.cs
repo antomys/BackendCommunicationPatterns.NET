@@ -1,4 +1,4 @@
-﻿using Grpc.Server;
+using Grpc.Server;
 
 namespace Grpc.Client;
 

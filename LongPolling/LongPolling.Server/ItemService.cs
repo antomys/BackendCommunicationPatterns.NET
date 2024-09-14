@@ -1,8 +1,14 @@
 public sealed class ItemService
 {
-    public bool AnyNewItems() => Random.Shared.Next(0, 100) == 1;
+    public bool AnyNewItems()
+    {
+        return Random.Shared.Next(0, 100) == 1;
+    }
 
-    public string GetNewItem() => "New item";
+    public string GetNewItem()
+    {
+        return "New item";
+    }
 
     private TaskCompletionSource<string?> _tcs = new();
 

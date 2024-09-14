@@ -1,11 +1,11 @@
-﻿namespace Webhook.Server;
+namespace Webhook.Server;
 
 public record Subscription(string Topic, string Callback);
 
 public sealed class WebhookService
 {
     private readonly List<Subscription> _subscriptions = new();
-    private readonly HttpClient _httpClient = new(); 
+    private readonly HttpClient _httpClient = new();
 
     public void Subscribe(Subscription subscription)
     {

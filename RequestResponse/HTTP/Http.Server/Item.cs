@@ -1,4 +1,4 @@
-﻿namespace HTTP.Server;
+namespace HTTP.Server;
 
 public sealed class Item
 {
