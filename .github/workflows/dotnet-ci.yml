@@ -2,24 +2,18 @@
 
 on:
   push:
-    branches:
-      - master
-    paths-ignore:
-      - "**.md"
+    branches: [ master ]
   pull_request:
-    paths-ignore:
-      - "**.md"
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.0.401
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore
+          dotnet-version: 8.x.x
+      - name: Build with dotnet
+        run: dotnet build -c Release
