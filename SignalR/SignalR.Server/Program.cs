@@ -1,3 +1,5 @@
+using SignalR.Server;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(o =>
 {
