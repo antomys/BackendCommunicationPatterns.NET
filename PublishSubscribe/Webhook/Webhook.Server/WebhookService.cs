@@ -1,7 +1,5 @@
 namespace Webhook.Server;
 
-public record Subscription(string Topic, string Callback);
-
 public sealed class WebhookService
 {
     private readonly List<Subscription> _subscriptions = new();

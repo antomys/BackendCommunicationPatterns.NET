@@ -1,4 +1,4 @@
-using ServerSentEvents.Server;
+namespace ServerSentEvents.Server;
 
 public sealed class ItemService
 {

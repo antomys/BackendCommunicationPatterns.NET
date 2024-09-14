@@ -1,10 +1,12 @@
 using System.Net.WebSockets;
 
+namespace WebSocket.Server;
+
 public sealed class ChatService
 {
-    private readonly List<WebSocket> _sockets = new();
+    private readonly List<System.Net.WebSockets.WebSocket> _sockets = new();
 
-    public async Task HandleWebSocketConnection(WebSocket socket)
+    public async Task HandleWebSocketConnection(System.Net.WebSockets.WebSocket socket)
     {
         _sockets.Add(socket);
 

@@ -1,3 +1,5 @@
+using LongPolling.Server;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ItemService>();
 var app = builder.Build();

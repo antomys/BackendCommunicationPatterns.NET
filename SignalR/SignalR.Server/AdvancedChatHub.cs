@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using Microsoft.AspNetCore.SignalR;
-using SignalR.Server;
+
+namespace SignalR.Server;
 
 public sealed class AdvancedChatHub : Hub
 {

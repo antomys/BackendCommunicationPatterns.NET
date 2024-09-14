@@ -1,3 +1,5 @@
+using WebSocket.Server;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ChatService>();
 var app = builder.Build();

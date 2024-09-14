@@ -1,4 +1,5 @@
 using System.Text.Json;
+using ServerSentEvents.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ItemService>();

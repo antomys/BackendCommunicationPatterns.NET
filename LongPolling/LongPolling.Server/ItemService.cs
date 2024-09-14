@@ -1,5 +1,9 @@
+namespace LongPolling.Server;
+
 public sealed class ItemService
 {
+    private TaskCompletionSource<string?> _tcs = new();
+
     public bool AnyNewItems()
     {
         return Random.Shared.Next(0, 100) == 1;
@@ -9,8 +13,6 @@ public sealed class ItemService
     {
         return "New item";
     }
-
-    private TaskCompletionSource<string?> _tcs = new();
 
     public void Reset()
     {
