@@ -1,24 +1,39 @@
-﻿namespace HTTP.Server;
-
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HTTP.Server;
 
 [ApiController]
 [Route("[controller]")]
-public class ItemsController : ControllerBase
+public sealed class ItemsController : ControllerBase
 {
     [HttpPost]
-    public IActionResult CreateItem(Item item) => Ok();
-    
+    public IActionResult CreateItem(Item item)
+    {
+        return Ok();
+    }
+
     [HttpPut("{id}")]
-    public IActionResult UpdateItem(int id, Item item) => Ok();
-    
+    public IActionResult UpdateItem(int id, Item item)
+    {
+        return Ok();
+    }
+
     [HttpGet("{id}")]
-    public IActionResult GetItem(int id) => Ok();
+    public IActionResult GetItem(int id)
+    {
+        return Ok();
+    }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteItem(int id) => Ok();
-    
+    public IActionResult DeleteItem(int id)
+    {
+        return Ok();
+    }
+
     [HttpPatch("{id}")]
-    public IActionResult PatchItem(JsonPatchDocument<Item> patchDoc) => Ok();
+    public IActionResult PatchItem(JsonPatchDocument<Item> patchDoc)
+    {
+        return Ok();
+    }
 }

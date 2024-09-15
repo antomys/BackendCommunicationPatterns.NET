@@ -1,11 +1,11 @@
-﻿using MassTransit;
+using MassTransit;
 using MessageBroker.Contracts;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
-services.AddMassTransit(x =>
+services.AddMassTransit(registrationConfigurator =>
 {
-    x.UsingRabbitMq((context, cfg) =>
+    registrationConfigurator.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host("localhost", "/", h =>
         {
@@ -18,7 +18,7 @@ services.AddMassTransit(x =>
 
 var serviceProvider = services.BuildServiceProvider();
 var bus = serviceProvider.GetRequiredService<IBusControl>();
-await bus.StartAsync(); 
+await bus.StartAsync();
 
 Console.WriteLine("Press any key to send a message...");
 while (true)

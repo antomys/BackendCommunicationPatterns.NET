@@ -1,6 +1,6 @@
-﻿namespace HTTP.Server;
+namespace HTTP.Server;
 
-public class Item
+public sealed class Item
 {
-    
+    public static readonly Item Default = new();
 }

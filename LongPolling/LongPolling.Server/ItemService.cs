@@ -1,10 +1,19 @@
-public class ItemService
+namespace LongPolling.Server;
+
+public sealed class ItemService
 {
-    public bool AnyNewItems() => Random.Shared.Next(0, 100) == 1;
-    public string GetNewItem() => "New item";
-    
     private TaskCompletionSource<string?> _tcs = new();
-    
+
+    public bool AnyNewItems()
+    {
+        return Random.Shared.Next(0, 100) == 1;
+    }
+
+    public string GetNewItem()
+    {
+        return "New item";
+    }
+
     public void Reset()
     {
         _tcs = new TaskCompletionSource<string?>();
@@ -23,7 +32,7 @@ public class ItemService
             await Task.Delay(TimeSpan.FromSeconds(Random.Shared.Next(0, 29)));
             NotifyNewItemAvailable();
         });
-        
+
         return _tcs.Task;
     }
 }

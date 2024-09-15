@@ -1,3 +1,3 @@
-﻿namespace MessageBroker.Contracts;
+namespace MessageBroker.Contracts;
 
-public record ItemCreatedMessage(string Name, double Price);
+public sealed record ItemCreatedMessage(string Name, double Price);

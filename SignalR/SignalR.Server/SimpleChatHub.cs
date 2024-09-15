@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.SignalR;
 
-public class SimpleChatHub : Hub
+namespace SignalR.Server;
+
+public sealed class SimpleChatHub : Hub
 {
     public async Task SendMessage(string message)
     {

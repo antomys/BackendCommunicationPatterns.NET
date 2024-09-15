@@ -1,10 +1,10 @@
-public record Item(string Name, double Price);
+namespace ServerSentEvents.Server;
 
-public class ItemService
+public sealed class ItemService
 {
     private TaskCompletionSource<Item?> _tcs = new();
     private long _id = 0;
-    
+
     public void Reset()
     {
         _tcs = new TaskCompletionSource<Item?>();
@@ -23,7 +23,7 @@ public class ItemService
             await Task.Delay(TimeSpan.FromSeconds(Random.Shared.Next(0, 29)));
             NotifyNewItemAvailable();
         });
-        
+
         return _tcs.Task;
     }
 }
